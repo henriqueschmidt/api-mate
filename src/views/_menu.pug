@@ -85,6 +85,11 @@
       .col-sm-9
         input#input-record.form-control.input-sm(type='checkbox', data-api-mate-param='record', data-api-mate-search='recording')
     .form-group
+      label.control-label.col-sm-3(for='input-record-original-audio') recordOriginalAudio
+      .col-sm-9
+        input#input-record-original-audio.form-control.input-sm(type='checkbox', data-api-mate-param='recordOriginalAudio', data-api-mate-search='recording,audio,original', aria-describedby='record-original-audio-tip', disabled)
+        #record-original-audio-tip.tip Requires record=true
+    .form-group
       label.control-label.col-sm-3(for='input-auto-start-recording') autoStartRecording
       .col-sm-9
         input#input-auto-start-recording.form-control.input-sm(type='checkbox', data-api-mate-param='autoStartRecording', data-api-mate-search='recording')

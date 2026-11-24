@@ -179,6 +179,7 @@ window.ApiMate = class ApiMate
 
   # Generate urls for all API calls and store them internally in `@urls`.
   generateUrls: () ->
+    @syncOriginalAudioRecording()
     params = {}
     customParams = {}
 
@@ -248,6 +249,13 @@ window.ApiMate = class ApiMate
     @urls.push _elem("join", "mobile call: join as moderator", api.setMobileProtocol(api.urlFor("join", params)))
     params['password'] = params['attendeePW']
     @urls.push _elem("join", "mobile call: join as attendee", api.setMobileProtocol(api.urlFor("join", params)))
+
+  # Original audio recording is only available for recordable meetings.
+  syncOriginalAudioRecording: ->
+    enabled = $("[data-api-mate-param='record']").is(':checked')
+    $original = $("[data-api-mate-param='recordOriginalAudio']")
+    $original.prop('disabled', !enabled)
+    $original.prop('checked', false) unless enabled
 
   # Empty all inputs in the configuration menu
   clearAllFields: ->

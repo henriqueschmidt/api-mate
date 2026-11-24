@@ -3,6 +3,10 @@
 
 $font-size: 14px;
 
+#menu-inputs #record-original-audio-tip::before {
+  content: none;
+}
+
 .api-mate-results {
   clear: both;
   overflow: hidden;
